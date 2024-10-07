@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            width: 100vw;
+            height: 100vh;
+            display: grid;
+            place-items: center;
+        }
+
+    .container {
+        width:300px;
+        height:300px;
+        border:1px solid black;
+    }
+    </style>
+</head>
+<body>
+    <div class = "container">
+        <label for = "widht"> widht</label>
+        <input type="range" id="widht" min="0" max="100">
+
+        <label for = "height"> height</label>
+        <input type="range" id="height" min="0" max="255">
+
+        <label for = "border"> border</label>
+        <input type="range" id="border" min="0" max="255">
+        
+        <label for = "shadow"> shadow</label>
+        <input type="range" id="shadow" min="0" max="255">
+    </div>
+    
+        
+    <script src = "./app.js"></script>
+</body>
+</html>

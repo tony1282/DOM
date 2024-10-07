@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Piedra Papel y Tijeras</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <div class="image">
+        <picture>
+            <img src="./rock.jpg" alt="Rock" data-id="rock">
+        </picture>
+        <picture>
+            <img src="./paper.jpg" alt="Paper" data-id="paper">
+        </picture>
+        <picture>
+            <img src="./scissors.jpg" alt="sisors" data-id="scissors">
+        </picture>
+    </div>
+
+    <div class="choices">
+        <div class="user-choice">
+            <h3>Usuario:</h3>
+            <img id="userChoiceImg" src="" alt="User Choice">
+        </div>
+        <div class="computer-choice">
+            <h3>Computadora:</h3>
+            <img id="computerChoiceImg" src="" alt="Computer Choice">
+        </div>
+    </div>
+
+    <div class="result">
+        <h1> Gana: <span></span></h1>
+    </div>
+
+    <script src="./app.js"></script>
+</body>
+</html>
