@@ -25,6 +25,8 @@ const addTarea = () =>{
 
 }
 
+
+
 const construyeDivs = () => {
     divTareas.innerHTML = ''
     arrayTareas.forEach(tarea => {
@@ -34,14 +36,7 @@ const construyeDivs = () => {
 
 
 
-const deleteItem = (e) => {
-    const cDiv = e.target;
-    const id = cDiv.getAttribute('data-id');
-    const encontrado = arrayTareas.findIndex(tarea => tarea.id !== Number(id));
-    const pa = e.target.parentElement;
-    pa.remove();
-    localStorage.setItem('tareas', JSON.stringify(arrayTareas));
-}
+w
 
 const createTarea = (tarea) => {
     const div = document.createElement('div');
