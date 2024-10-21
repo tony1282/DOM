@@ -1,23 +1,45 @@
-// Select the container and the range inputs
-const container = document.querySelector('.container');
-const widthInput = document.getElementById('width');
-const heightInput = document.getElementById('height');
-const borderInput = document.getElementById('border');
-const shadowInput = document.getElementById('shadow');
+const inputAlto = document.querySelector('#height');
+const inputAncho = document.querySelector('#width');
+const inputRadio = document.querySelector('#radius');
+const inputSombra = document.querySelector('#shadow');
+const figure = document.querySelector('.container'); // Aseguramos que es la clase .container
 
-// Add event listeners to each input
-widthInput.addEventListener('input', function () {
-    container.style.width = `${widthInput.value}%`; // Adjusting width based on range value
+let altopar = 0;
+let anchopar = 0;
+let radiopar = 0;
+let sombrapar = 0;
+
+const cambiodepropiedadesalto = () => {
+    return ${altopar}px;
+};
+const cambiodepropiedadesancho = () => {
+    return ${anchopar}px;
+};
+const cambiodepropiedadesradio = () => {
+    return ${radiopar}px;
+};
+// Función corregida para la sombra
+const cambiodepropiedadessombra = () => {
+    return 10px 10px ${sombrapar}px rgba(0, 0, 0, 0.5); // Sombra con desplazamiento y blur dinámico
+};
+
+// Event listeners para actualizar los valores en tiempo real
+inputAlto.addEventListener('input', (al) => {
+    altopar = al.target.value;
+    figure.style.height = cambiodepropiedadesalto();
 });
 
-heightInput.addEventListener('input', function () {
-    container.style.height = `${heightInput.value}px`; // Adjusting height based on range value
+inputAncho.addEventListener('input', (an) => {
+    anchopar = an.target.value;
+    figure.style.width = cambiodepropiedadesancho();
 });
 
-borderInput.addEventListener('input', function () {
-    container.style.borderWidth = `${borderInput.value}px`; // Adjusting border width based on range value
+inputRadio.addEventListener('input', (ra) => {
+    radiopar = ra.target.value;
+    figure.style.borderRadius = cambiodepropiedadesradio();
 });
 
-shadowInput.addEventListener('input', function () {
-    container.style.boxShadow = `0 0 ${shadowInput.value}px rgba(0, 0, 0, 0.5)`; // Adjusting shadow based on range value
+inputSombra.addEventListener('input', (so) => {
+    sombrapar = so.target.value;
+    figure.style.boxShadow = cambiodepropiedadessombra(); // Aplicar el estilo de la sombra
 });
