@@ -1,52 +1,40 @@
 const lienzo = document.querySelector('#lienzo');
 const ctx = lienzo.getContext('2d');
 
-let x = 300;
-let y = 200;
-let radioInicial = 50;
-let cambioRadio = 2;
-let coloInicial = 0;
-
 const circle = {
-    x: 200,
-    y: 300,
-    radioInicial: 1,
-    cambioRadio: 2,
-    coloInicial: 0,
-    dirX: false,
-    dirY: false,
-    color: rgb(100, 20, 30),
-    getColor: function(){
-        const r = Math.floor(Math.random() * 255);
-        const g = Math.floor(Math.random() * 255);
-        const b = Math.floor(Math.random() * 255);
-        this.color = rgb(${r}, ${g}, ${b});
-    },
+    x: lienzo.width / 2, // Centra el círculo en el lienzo
+    y: lienzo.height / 2,
+    radioInicial: 50, // Radio inicial
+    cambioRadio: 2, // Cambia el tamaño del círculo
+    growing: true, // Para saber si el círculo está creciendo
+    color: 'rgb(100, 20, 30)', // Color del círculo
+
+    // Método para mostrar el círculo
     show: function() {
         ctx.fillStyle = this.color;
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.radioInicial, 0, Math.PI * 2);
         ctx.fill();
     },
-    getSize: function(){
-        radioInicial += cambioRadio;
-        if (radioInicial > 200 || radioInicial < 1){
-            cambioRadio =- cambioRadio;
-        }
-        coloInicial += 1;
-        if (coloInicial>= 360){
-            coloInicial = 0;
+
+    // Método para actualizar el tamaño del círculo
+    updateSize: function() {
+        if (this.growing) {
+            this.radioInicial += this.cambioRadio;
+            if (this.radioInicial > 200) { // Limite superior
+                this.growing = false; // Cambia a encogerse
+            }
+        } else {
+            this.radioInicial -= this.cambioRadio;
+            if (this.radioInicial < 10) { // Limite inferior
+                this.growing = true; // Cambia a crecer
+            }
         }
     }
-}
+};
+
 setInterval(() => {
-    ctx.clearRect(0, 0, 600, 400)
-    circle.y = y;
-    circle.radioInicial = radioInicial;
-    circle.cambioRadio = cambioRadio;
-    circle.coloInicial = coloInicial;
-    circle.getColor();
-    circle.show();
-    circle.getSize();
-    circle.x = x;
-    }, 10);
+    ctx.clearRect(0, 0, lienzo.width, lienzo.height); // Limpia el lienzo
+    circle.updateSize(); // Actualiza el tamaño del círculo
+    circle.show(); // Muestra el círculo
+}, 30); // Actualiza cada 30 ms

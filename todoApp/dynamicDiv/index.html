@@ -19,7 +19,7 @@
             border: 1px solid black;
             border-radius: 0px;
             box-shadow: 10px 10px 5px black;
-            transition: all 0.3s ease; 
+            transition: all 0.3s ease;
         }
     </style>
 </head>
@@ -37,7 +37,7 @@
     </div>
     <div>
         <label for="shadow">Sombra</label>
-        <input type="range" id="shadow" min="0" max="500"> 
+        <input type="range" id="shadow" min="0" max="500">
     </div>
 
     <script>
@@ -47,25 +47,23 @@
         const inputSombra = document.querySelector('#shadow');
         const figure = document.querySelector('.container');
 
-        // Actualizar altura
+        
         inputAlto.addEventListener('input', (event) => {
-            figure.style.height = ${event.target.value}px;
+            figure.style.height = `${event.target.value}px`;
         });
 
-        // Actualizar anchura
         inputAncho.addEventListener('input', (event) => {
-            figure.style.width = ${event.target.value}px;
+            figure.style.width = `${event.target.value}px`;
         });
 
-        // Actualizar radio del borde
         inputRadio.addEventListener('input', (event) => {
-            figure.style.borderRadius = ${event.target.value}px;
+            figure.style.borderRadius = `${event.target.value}px`;
         });
 
-        // Actualizar sombra (blur)
+        
         inputSombra.addEventListener('input', (event) => {
             const blur = event.target.value;
-            figure.style.boxShadow = 10px 10px ${blur}px rgba(0, 0, 0, 0.5); 
+            figure.style.boxShadow = `10px 10px ${blur}px rgba(0, 0, 0, 0.5)`;
         });
     </script>
 </body>
