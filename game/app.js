@@ -41,7 +41,7 @@ const food = {
         ctx.fillText('🍕', this.x * 20, this.y * 20)
     },
     aparece: function () {
-        // generar valores this.x y this.y aletorios 
+        
         this.x = Math.ceil(Math.random() * 29);
         this.y = Math.ceil(Math.random() * 19) + 1;
     }
@@ -51,7 +51,7 @@ let count = 0;
 
 function checkEat() {
     if (sanke[0].x === food.x && sanke[0].y === food.y) {
-        food.aparece();
+        food.aparece(); 
         sanke.push({...sanke[1]});
         count++;
 
@@ -93,10 +93,10 @@ gameInterval = setInterval(() => {
     else y--;
 
     //validar limites
-    if (x > 29) x = 0;
-    else if (x < 0) x = 29;
-    if (y > 20) y = 2;
-    else if (y < 1) y = 20;
+    if (x > 39) x = 0;
+    else if (x < 0) x = 39;
+    if (y > 30) y = 2;
+    else if (y < 1) y = 30;
 }, 80);
 
 

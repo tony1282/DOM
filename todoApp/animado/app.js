@@ -33,10 +33,10 @@ setInterval(() => {
     square.getColor();
 
     square.show();
-    x = square.dirX? x + 20 : x - 20;
+    x = square.dirX? x + 30 : x - 30;
     y = square.dirY? y + 20 : y - 20;
-    square.dirX = x >= 600? !square.dirX: square.dirX;
-    square.dirY = y >= 700? !square.dirY: square.dirY;
+    square.dirX = x >= 800? !square.dirX: square.dirX;
+    square.dirY = y >= 600? !square.dirY: square.dirY;
     square.dirX = x <= 0? !square.dirX: square.dirX;
     square.dirY = y <= 0? !square.dirY: square.dirY;
 }, 50);
